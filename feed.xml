@@ -1,0 +1,447 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Godot Engine Francophone</title>
+    <description>Nous sommes la communauté francophone officielle de Godot Engine. Nous proposons de l’aide à ceux qui souhaitent se lancer dans l’utilisation de Godot, et nous contribuons à l’amélioration du moteur.
+</description>
+    <link>https://www.godot-francophone.org/</link>
+    <atom:link href="https://www.godot-francophone.org/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Wed, 22 Jan 2020 17:37:45 +0000</pubDate>
+    <lastBuildDate>Wed, 22 Jan 2020 17:37:45 +0000</lastBuildDate>
+    <generator>Jekyll v3.6.3</generator>
+    
+      <item>
+        <title>Release candidate 2: Godot 3.2</title>
+        <description>&lt;p&gt;Enfin; Godot 3.2 sera bientôt prêt. Nous sommes heureux de vous annoncer cette seconde Release Candidate. 
+Nous espérons que cela va encourager les tests de ce qui va devenir Godot 3.2 stable dans les jours à venir.&lt;/p&gt;
+
+&lt;p&gt;La &lt;a href=&quot;http://godot-francophone.org/actualite-release-candidate-3-2-rc-1/&quot;&gt;première candidate&lt;/a&gt; pour la version stable qui a été publiée Vendredi dernier s’est avérée problématique pour certains utilisateurs qui utilisaient le moteur de rendu GLES3. Cela était dû aux calculs faits pour la carte d’irradiation (&lt;em&gt;irradiance map&lt;/em&gt; en anglais, qui constitue une collections de points en 3D dans l’espace permet de calculer l’illumination indirecte de ces points) qui bloquaient le processeur de la carte graphique. Ce problème a été résolu en réduisant la complexité des calculs tout en améliorant légèrement la qualité.&lt;/p&gt;
+
+&lt;p&gt;Voici les changements notables depuis la première candidate:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Coeur: Correction de la portabilité ClassDB API pour l’API de calcul de hashage (&lt;a href=&quot;https://github.com/godotengine/godot/pull/35326&quot;&gt;GH-35326&lt;/a&gt;) (correction des faux positifs “Core API hash mismatch” du compilateur C# sur la version de debug).&lt;/li&gt;
+  &lt;li&gt;Editeur: Accélération du temps de démarrage gràce à l’optimisation de la génération de l’éditeur de thème.&lt;/li&gt;
+  &lt;li&gt;GLES3: Réduction de la complexité de calcul de la carte d’irradiation (&lt;a href=&quot;https://github.com/godotengine/godot/pull/35302&quot;&gt;GH-35302&lt;/a&gt;).&lt;/li&gt;
+  &lt;li&gt;HTML5: Correction du support de Emscripten 1.39.5+ (&lt;a href=&quot;https://github.com/godotengine/godot/pull/35237&quot;&gt;GH-35237&lt;/a&gt;, &lt;a href=&quot;https://github.com/godotengine/godot/pull/35256&quot;&gt;GH-35256&lt;/a&gt;).&lt;/li&gt;
+  &lt;li&gt;iOS: Correction d’un crash lors de la fermeture de l’application (&lt;a href=&quot;https://github.com/godotengine/godot/pull/35265&quot;&gt;GH-35265&lt;/a&gt;).&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Pour ceux qui suivent les versions de développements de près, il y a eu &lt;a href=&quot;https://github.com/godotengine/godot/compare/ba7aca4199019529dec60555a5ff005f6692d281...adb6734b491091663d9159efe6e5a5fa9ff5202f&quot;&gt;61 changements&lt;/a&gt; depuis la 3.2 RC 1. Cette version est construite à partir de &lt;a href=&quot;https://github.com/godotengine/godot/commit/adb6734b491091663d9159efe6e5a5fa9ff5202f&quot;&gt;ba7aca4&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;avertissement&quot;&gt;Avertissement&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;IMPORTANT: Il s’agit d’une version &lt;a href=&quot;https://en.wikipedia.org/wiki/Software_release_life_cycle#Beta&quot;&gt;beta&lt;/a&gt;, cela signifie qu’elle n’est pas utilisable pour la production ni pour les revues de pressed car cela ne reflète pas ce que la version &lt;code class=&quot;highlighter-rouge&quot;&gt;3.2&lt;/code&gt; de Godot sera.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Des corrections vont encore être apportées avant la version finale, et nous aurons besoin de vos rapports de bogue détaillés pour comprendre les problèmes et les corriger.&lt;/p&gt;
+
+&lt;h2 id=&quot;les-fonctionnalités&quot;&gt;Les fonctionnalités&lt;/h2&gt;
+&lt;p&gt;Les notes de version ne sont pas encore écrites, mais vous pouvez vous référer au &lt;a href=&quot;https://gist.github.com/Calinou/49aefe52ce8f67ffa3f743932123d14f&quot;&gt;journal des modifications détaillé&lt;/a&gt; que notre contributeur Hugo Locurcio conteinue de maintenir.&lt;/p&gt;
+
+&lt;p&gt;Nos blogs de développement passés devraient également vous donner une idée des principaux points forts de la prochaine version. Notez que le port de Vulkan décrit dans les derniers messages de Juan est développé dans une branche séparée pour Godot &lt;code class=&quot;highlighter-rouge&quot;&gt;4.0&lt;/code&gt;, et n’est pas inclus dans cette version.&lt;/p&gt;
+
+&lt;p&gt;Les rédacteurs de la documentation travaillent d’arrache-pied pour tenir la documentation à jour, et la &lt;a href=&quot;https://docs.godotengine.org/fr/latest/&quot;&gt;dernière branche&lt;/a&gt; devrait déjà inclure des détails sur la majorité des nouvelles fonctionnalités de la &lt;code class=&quot;highlighter-rouge&quot;&gt;3.2&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Pour les changements depuis la dernière version alpha, voir la &lt;a href=&quot;https://github.com/godotengine/godot/compare/ba7aca4199019529dec60555a5ff005f6692d281...adb6734b491091663d9159efe6e5a5fa9ff5202f&quot;&gt;liste des livraisons&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;téléchargements&quot;&gt;Téléchargements&lt;/h2&gt;
+&lt;p&gt;Les liens de téléchargement ne figurent pas sur la page de téléchargement officielle pour l’instant et cela afin d’éviter toute confusion pour les nouveaux utilisateurs. Vous pouvez cependant parcourir l’un des dépôts officiels pour récupérer le binaire de l’éditeur qui correspond à votre plate-forme:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://downloads.tuxfamily.org/godotengine/3.2/rc2/&quot;&gt;Version classique&lt;/a&gt; (GDScript, GDNative, VisualScript).&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://downloads.tuxfamily.org/godotengine/3.2/rc2/mono&quot;&gt;Version Mono&lt;/a&gt; (support C# + tout ce qui précède). Vous devez avoir MSbuild installé pour utiliser la compilation Mono. Les parties pertinentes de Mono 6.6.0 Preview sont incluses dans cette version.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;IMPORTANT:&lt;/strong&gt; Faites des sauvegardes de vos projets Godot 3.1 avant de les ouvrir dans toute version de développement &lt;code class=&quot;highlighter-rouge&quot;&gt;3.2&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;rapports-de-bugs&quot;&gt;Rapports de bugs&lt;/h2&gt;
+&lt;p&gt;Il y a encore des &lt;a href=&quot;https://github.com/godotengine/godot/issues?utf8=%E2%9C%93&amp;amp;q=is%3Aopen+is%3Aissue+milestone%3A3.2+label%3Abug+&quot;&gt;centaines de rapports de bogues&lt;/a&gt; ouverts pour le jalon &lt;code class=&quot;highlighter-rouge&quot;&gt;3.2&lt;/code&gt;, ce qui signifie que nous sommes déjà au courant de nombreux bogues. Cependant, bon nombre de ces problèmes ne sont peut-être pas critiques pour la version &lt;code class=&quot;highlighter-rouge&quot;&gt;3.2&lt;/code&gt;, et vu que nous avons atteint le gel de la version &lt;code class=&quot;highlighter-rouge&quot;&gt;3.2&lt;/code&gt;, ils seront réexaminés à nouveau puis certains seront réglés ultérieurement.&lt;/p&gt;
+
+&lt;p&gt;En tant que testeur, vous êtes encouragé à ouvrir les rapports de bogue si vous rencontrez des problèmes avec la version &lt;code class=&quot;highlighter-rouge&quot;&gt;3.2&lt;/code&gt; beta. Veuillez d’abord vérifier si le problème que vous avez rencontré n’existe &lt;a href=&quot;https://github.com/godotengine/godot/issues&quot;&gt;pas déjà&lt;/a&gt;, en utilisant la fonction de recherche avec les mots-clés pertinents, pour vous assurer que le bogue que vous rencontrez n’est pas déjà connu.&lt;/p&gt;
+</description>
+        <pubDate>Mon, 20 Jan 2020 00:00:00 +0000</pubDate>
+        <link>https://www.godot-francophone.org/actualite-release-candidate-3-2-rc-2/</link>
+        <guid isPermaLink="true">https://www.godot-francophone.org/actualite-release-candidate-3-2-rc-2/</guid>
+        
+        <category>3.2</category>
+        
+        <category>Release candidate</category>
+        
+        
+        <category>actualite</category>
+        
+      </item>
+    
+      <item>
+        <title>Release candidate 1: Godot 3.2</title>
+        <description>&lt;p&gt;Et voilà; Godot 3.2 sera bientôt prêt. Nous sommes heureux de vous annoncer cette première Release Candidate. 
+Nous espérons que cela va encourager les tests de ce qui va devenir Godot 3.2 dans les jours à venir.&lt;/p&gt;
+
+&lt;h2 id=&quot;petit-deviendra-grand&quot;&gt;Petit deviendra grand&lt;/h2&gt;
+
+&lt;p&gt;Godot 3.2 devait être une petite mise à jour, apportant avec elle son lot habituel d’améliorations par rapport à la version précédente sans pour autant apporter de changements majeurs. C’est la prochaine version, la 4.0 de Godot Engine, sur laquelle nous travaillons qui apportera le support de Vulkan, de nouvelles fonctionnalités de rendus et une refonte du moteur. Nous voulions la publier vers mi-2019, cependant, comme toujours dans le développement logiciel, guidé par la communauté du libre, nous avons été un peu trop optimiste.&lt;/p&gt;
+
+&lt;p&gt;Cependant, cette rallonge de temps a été bénéfique pour la version 3.2. Elle est livrée avec une tonne de nouvelles et importantes fonctionnalités ainsi qu’un nombre conséquent de correctifs - plus de 6000 changements de code apportés par près de 450 contributeurs! Avant de basculer sur la branche &lt;code class=&quot;highlighter-rouge&quot;&gt;vulkan&lt;/code&gt;, Juan a pris le temps de développer quelques superbes fonctionnalités, et le reste a été fait par les contributeurs qui ont travaillés sans relâche pour implémenter toutes sortes de choses et pour corriger quelques 2000 bugs. Godot 3.2 sera bien plus mature que 3.1 sur tous les aspects, et ce sera une excellente version pour les developpeurs qui souhaitent développer des jeux avec la version 3.x (dans le cas ou porter les jeux à la version 4.0 s’avère compliqué)&lt;/p&gt;
+
+&lt;p&gt;Bon, je vous tiens en haleine, mais j’ai pas encore fait la liste des plus importants changements pour le moment - avec un peu de chance la semaine qui vient me donnera assez de temps libre pour faire un brouillon à temps pour la version finale.&lt;/p&gt;
+
+&lt;p&gt;Cette version contient &lt;a href=&quot;https://github.com/godotengine/godot/compare/0ab1726b43dbe81c96d208a41a582435b76fd058...ba7aca4199019529dec60555a5ff005f6692d281&quot;&gt;187 changements&lt;/a&gt; depuis la 3.2 beta 6. Cette version est construite à partir de &lt;a href=&quot;https://github.com/godotengine/godot/commit/ba7aca4199019529dec60555a5ff005f6692d281&quot;&gt;0ab1726&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;avertissement&quot;&gt;Avertissement&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;IMPORTANT: Il s’agit d’une version &lt;a href=&quot;https://en.wikipedia.org/wiki/Software_release_life_cycle#Beta&quot;&gt;beta&lt;/a&gt;, cela signifie qu’elle n’est pas utilisable pour la production ni pour les revues de pressed car cela ne reflète pas ce que la version &lt;code class=&quot;highlighter-rouge&quot;&gt;3.2&lt;/code&gt; de Godot sera.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Des corrections vont encore être apportées avant la version finale, et nous aurons besoin de vos rapports de bogue détaillés pour comprendre les problèmes et les corriger.&lt;/p&gt;
+
+&lt;h2 id=&quot;les-fonctionnalités&quot;&gt;Les fonctionnalités&lt;/h2&gt;
+&lt;p&gt;Les notes de version ne sont pas encore écrites, mais vous pouvez vous référer au &lt;a href=&quot;https://gist.github.com/Calinou/49aefe52ce8f67ffa3f743932123d14f&quot;&gt;journal des modifications détaillé&lt;/a&gt; que notre contributeur Hugo Locurcio conteinue de maintenir.&lt;/p&gt;
+
+&lt;p&gt;Nos blogs de développement passés devraient également vous donner une idée des principaux points forts de la prochaine version. Notez que le port de Vulkan décrit dans les derniers messages de Juan est développé dans une branche séparée pour Godot &lt;code class=&quot;highlighter-rouge&quot;&gt;4.0&lt;/code&gt;, et n’est pas inclus dans cette version.&lt;/p&gt;
+
+&lt;p&gt;Les rédacteurs de la documentation travaillent d’arrache-pied pour tenir la documentation à jour, et la &lt;a href=&quot;https://docs.godotengine.org/fr/latest/&quot;&gt;dernière branche&lt;/a&gt; devrait déjà inclure des détails sur la majorité des nouvelles fonctionnalités de la &lt;code class=&quot;highlighter-rouge&quot;&gt;3.2&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Pour les changements depuis la dernière version alpha, voir la &lt;a href=&quot;https://github.com/godotengine/godot/compare/0ab1726b43dbe81c96d208a41a582435b76fd058...ba7aca4199019529dec60555a5ff005f6692d281&quot;&gt;liste des livraisons&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;téléchargements&quot;&gt;Téléchargements&lt;/h2&gt;
+&lt;p&gt;Les liens de téléchargement ne figurent pas sur la page de téléchargement officielle pour l’instant et cela afin d’éviter toute confusion pour les nouveaux utilisateurs. Vous pouvez cependant parcourir l’un des dépôts officiels pour récupérer le binaire de l’éditeur qui correspond à votre plate-forme:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://downloads.tuxfamily.org/godotengine/3.2/rc1/&quot;&gt;Version classique&lt;/a&gt; (GDScript, GDNative, VisualScript).&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://downloads.tuxfamily.org/godotengine/3.2/rc1/mono/&quot;&gt;Version Mono&lt;/a&gt; (support C# + tout ce qui précède). Vous devez avoir MSbuild installé pour utiliser la compilation Mono. Les parties pertinentes de Mono 6.6.0 Preview sont incluses dans cette version.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;IMPORTANT:&lt;/strong&gt; Faites des sauvegardes de vos projets Godot 3.1 avant de les ouvrir dans toute version de développement &lt;code class=&quot;highlighter-rouge&quot;&gt;3.2&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;rapports-de-bugs&quot;&gt;Rapports de bugs&lt;/h2&gt;
+&lt;p&gt;Il y a encore des &lt;a href=&quot;https://github.com/godotengine/godot/issues?utf8=%E2%9C%93&amp;amp;q=is%3Aopen+is%3Aissue+milestone%3A3.2+label%3Abug+&quot;&gt;centaines de rapports de bogues&lt;/a&gt; ouverts pour le jalon &lt;code class=&quot;highlighter-rouge&quot;&gt;3.2&lt;/code&gt;, ce qui signifie que nous sommes déjà au courant de nombreux bogues. Cependant, bon nombre de ces problèmes ne sont peut-être pas critiques pour la version &lt;code class=&quot;highlighter-rouge&quot;&gt;3.2&lt;/code&gt;, et vu que nous avons atteint le gel de la version &lt;code class=&quot;highlighter-rouge&quot;&gt;3.2&lt;/code&gt;, ils seront réexaminés à nouveau puis certains seront réglés ultérieurement.&lt;/p&gt;
+
+&lt;p&gt;En tant que testeur, vous êtes encouragé à ouvrir les rapports de bogue si vous rencontrez des problèmes avec la version &lt;code class=&quot;highlighter-rouge&quot;&gt;3.2&lt;/code&gt; beta. Veuillez d’abord vérifier si le problème que vous avez rencontré n’existe pas déjà, en utilisant la fonction de recherche avec les mots-clés pertinents, pour vous assurer que le bogue que vous rencontrez n’est pas déjà connu.&lt;/p&gt;
+</description>
+        <pubDate>Fri, 17 Jan 2020 00:00:00 +0000</pubDate>
+        <link>https://www.godot-francophone.org/actualite-release-candidate-3-2-rc-1/</link>
+        <guid isPermaLink="true">https://www.godot-francophone.org/actualite-release-candidate-3-2-rc-1/</guid>
+        
+        <category>3.2</category>
+        
+        <category>Release candidate</category>
+        
+        
+        <category>actualite</category>
+        
+      </item>
+    
+      <item>
+        <title>godot-lportal</title>
+        <description>&lt;p&gt;Il n’y a aucun contenu pour les ressources.
+Ce que vous écrirez ici ne sera jamais affiché.&lt;/p&gt;
+</description>
+        <pubDate>Thu, 16 Jan 2020 00:00:00 +0000</pubDate>
+        <link>https://www.godot-francophone.org/resource-godot-lportal/</link>
+        <guid isPermaLink="true">https://www.godot-francophone.org/resource-godot-lportal/</guid>
+        
+        <category>3.2</category>
+        
+        <category>Module</category>
+        
+        <category>3D</category>
+        
+        <category>Culling</category>
+        
+        
+        <category>extensions</category>
+        
+      </item>
+    
+      <item>
+        <title>GodotBluetooth</title>
+        <description>&lt;p&gt;Il n’y a aucun contenu pour les ressources.
+Ce que vous écrirez ici ne sera jamais affiché.&lt;/p&gt;
+</description>
+        <pubDate>Thu, 16 Jan 2020 00:00:00 +0000</pubDate>
+        <link>https://www.godot-francophone.org/resource-godot-bluetooth/</link>
+        <guid isPermaLink="true">https://www.godot-francophone.org/resource-godot-bluetooth/</guid>
+        
+        <category>3.1.2</category>
+        
+        <category>Module</category>
+        
+        <category>Bluetooth</category>
+        
+        
+        <category>extensions</category>
+        
+      </item>
+    
+      <item>
+        <title>Sealed Bite</title>
+        <description>
+</description>
+        <pubDate>Tue, 14 Jan 2020 00:00:00 +0000</pubDate>
+        <link>https://www.godot-francophone.org/resource-sealedbite/</link>
+        <guid isPermaLink="true">https://www.godot-francophone.org/resource-sealedbite/</guid>
+        
+        <category>3.2</category>
+        
+        <category>Jeu</category>
+        
+        
+        <category>projets</category>
+        
+      </item>
+    
+      <item>
+        <title>Instantané: Godot 3.2 beta 6</title>
+        <description>&lt;p&gt;&lt;img src=&quot;https://godotengine.org/storage/app/uploads/public/5e1/9ae/32b/5e19ae32b8b87812018580.png&quot; alt=&quot;Fantastic Creatures&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Après une semaine très chargée avec de nombreux correctifs (ainsi que l’ajout de plusieurs améliorations mineures sans risque et une document mise à niveau), voici sans plus attendre &lt;strong&gt;Godot 3.2 beta 6&lt;/strong&gt;!&lt;/p&gt;
+
+&lt;p&gt;Comme mentionné dans une &lt;a href=&quot;https://godotengine.org/article/dev-snapshot-godot-3-2-beta-5&quot;&gt;brève précédente&lt;/a&gt;, la phase de release candidate est on ne peut plus proche, j’ai même hésité à la nommer ainsi. Cependant, au vu des nombreux changements, j’ai préféré rester en phase de beta mais si tout va bien la RC 1 (release candidate 1) devrait arriver dans les prochains jours.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Note: Les crédits pour l’image sont en bas de page&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Cette version contient &lt;a href=&quot;https://github.com/godotengine/godot/compare/399e53e8c328f47bc116b743cd19c66c83e1122b...0ab1726b43dbe81c96d208a41a582435b76fd058&quot;&gt;219 changements&lt;/a&gt; depuis la 3.2 beta 5. Cette version est construite à partir de &lt;a href=&quot;https://github.com/godotengine/godot/commit/0ab1726b43dbe81c96d208a41a582435b76fd058&quot;&gt;0ab1726&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;avertissement&quot;&gt;Avertissement&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;IMPORTANT: Il s’agit d’une version &lt;a href=&quot;https://en.wikipedia.org/wiki/Software_release_life_cycle#Beta&quot;&gt;beta&lt;/a&gt;, cela signifie qu’elle n’est pas utilisable pour la production ni pour les revues de pressed car cela ne reflète pas ce que la version &lt;code class=&quot;highlighter-rouge&quot;&gt;3.2&lt;/code&gt; de Godot sera.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Des corrections vont encore être apportées avant la version finale, et nous aurons besoin de vos rapports de bogue détaillés pour comprendre les problèmes et les corriger.&lt;/p&gt;
+
+&lt;h2 id=&quot;les-fonctionnalités&quot;&gt;Les fonctionnalités&lt;/h2&gt;
+&lt;p&gt;Les notes de version ne sont pas encore écrites, mais vous pouvez vous référer au &lt;a href=&quot;https://gist.github.com/Calinou/49aefe52ce8f67ffa3f743932123d14f&quot;&gt;journal des modifications détaillé&lt;/a&gt; que notre contributeur Hugo Locurcio conteinue de maintenir.&lt;/p&gt;
+
+&lt;p&gt;Nos blogs de développement passés devraient également vous donner une idée des principaux points forts de la prochaine version. Notez que le port de Vulkan décrit dans les derniers messages de Juan est développé dans une branche séparée pour Godot &lt;code class=&quot;highlighter-rouge&quot;&gt;4.0&lt;/code&gt;, et n’est pas inclus dans cette version.&lt;/p&gt;
+
+&lt;p&gt;Les rédacteurs de la documentation travaillent d’arrache-pied pour tenir la documentation à jour, et la &lt;a href=&quot;https://docs.godotengine.org/fr/latest/&quot;&gt;dernière branche&lt;/a&gt; devrait déjà inclure des détails sur la majorité des nouvelles fonctionnalités de la &lt;code class=&quot;highlighter-rouge&quot;&gt;3.2&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Pour les changements depuis la dernière version alpha, voir la &lt;a href=&quot;https://github.com/godotengine/godot/compare/399e53e8c328f47bc116b743cd19c66c83e1122b...0ab1726b43dbe81c96d208a41a582435b76fd058&quot;&gt;liste des livraisons&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;téléchargements&quot;&gt;Téléchargements&lt;/h2&gt;
+&lt;p&gt;Les liens de téléchargement ne figurent pas sur la page de téléchargement officielle pour l’instant et cela afin d’éviter toute confusion pour les nouveaux utilisateurs. Vous pouvez cependant parcourir l’un des dépôts officiels pour récupérer le binaire de l’éditeur qui correspond à votre plate-forme:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://downloads.tuxfamily.org/godotengine/3.2/beta6/&quot;&gt;Version classique&lt;/a&gt; (GDScript, GDNative, VisualScript).&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://downloads.tuxfamily.org/godotengine/3.2/beta6/mono/&quot;&gt;Version Mono&lt;/a&gt; (support C# + tout ce qui précède). Vous devez avoir MSbuild installé pour utiliser la compilation Mono. Les parties pertinentes de Mono 6.6.0 Preview sont incluses dans cette version.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;IMPORTANT:&lt;/strong&gt; Faites des sauvegardes de vos projets Godot 3.1 avant de les ouvrir dans toute version de développement &lt;code class=&quot;highlighter-rouge&quot;&gt;3.2&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;rapports-de-bugs&quot;&gt;Rapports de bugs&lt;/h2&gt;
+&lt;p&gt;Il y a encore des &lt;a href=&quot;https://github.com/godotengine/godot/issues?utf8=%E2%9C%93&amp;amp;q=is%3Aopen+is%3Aissue+milestone%3A3.2+label%3Abug+&quot;&gt;centaines de rapports de bogues&lt;/a&gt; ouverts pour le jalon &lt;code class=&quot;highlighter-rouge&quot;&gt;3.2&lt;/code&gt;, ce qui signifie que nous sommes déjà au courant de nombreux bogues. Cependant, bon nombre de ces problèmes ne sont peut-être pas critiques pour la version &lt;code class=&quot;highlighter-rouge&quot;&gt;3.2&lt;/code&gt;, et vu que nous avons atteint le gel de la version &lt;code class=&quot;highlighter-rouge&quot;&gt;3.2&lt;/code&gt;, ils seront réexaminés à nouveau puis certains seront réglés ultérieurement.&lt;/p&gt;
+
+&lt;p&gt;En tant que testeur, vous êtes encouragé à ouvrir les rapports de bogue si vous rencontrez des problèmes avec la version &lt;code class=&quot;highlighter-rouge&quot;&gt;3.2&lt;/code&gt; beta. Veuillez d’abord vérifier si le problème que vous avez rencontré n’existe pas déjà, en utilisant la fonction de recherche avec les mots-clés pertinents, pour vous assurer que le bogue que vous rencontrez n’est pas déjà connu.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;em&gt;L’illustration est tirée de &lt;a href=&quot;https://securas.itch.io/sealedbite&quot;&gt;Sealed Bite&lt;/a&gt;, un magnifique graphisme pixel à la metroidvania par &lt;a href=&quot;https://twitter.com/Securas2010&quot;&gt;Securas&lt;/a&gt; avec la musique composée par &lt;a href=&quot;https://soundcloud.com/fabienmerten&quot;&gt;Wandard&lt;/a&gt;. Il s’agit du jeu qui a gagné le &lt;a href=&quot;https://itch.io/jam/game-off-2019&quot;&gt;Github Game Off 2019&lt;/a&gt; (Gamejam organisée par github).
+Allez voir ça sur &lt;a href=&quot;https://securas.itch.io/sealedbite&quot;&gt;http://itch.io&lt;/a&gt;, vous pouvez même jouer avec le &lt;a href=&quot;https://github.com/securas/SealedBite&quot;&gt;code source du jeu qui est disponible sur Github&lt;/a&gt;. N’oubliez pas de suivre &lt;a href=&quot;https://twitter.com/Securas2010&quot;&gt;Securas sur Twitter&lt;/a&gt;, qui est un des plus profilique et talentueux Jammers de Godot.&lt;/em&gt;&lt;/p&gt;
+</description>
+        <pubDate>Tue, 14 Jan 2020 00:00:00 +0000</pubDate>
+        <link>https://www.godot-francophone.org/actualite-devsnapshot-3-2-beta-6/</link>
+        <guid isPermaLink="true">https://www.godot-francophone.org/actualite-devsnapshot-3-2-beta-6/</guid>
+        
+        <category>Snapshot</category>
+        
+        <category>3.2</category>
+        
+        <category>Beta</category>
+        
+        
+        <category>actualite</category>
+        
+      </item>
+    
+      <item>
+        <title>Crypth of the GodoDancers</title>
+        <description>&lt;p&gt;Il n’y a aucun contenu pour les ressources.
+Ce que vous écrirez ici ne sera jamais affiché.&lt;/p&gt;
+</description>
+        <pubDate>Tue, 17 Dec 2019 00:00:00 +0000</pubDate>
+        <link>https://www.godot-francophone.org/resource-project-ctgd/</link>
+        <guid isPermaLink="true">https://www.godot-francophone.org/resource-project-ctgd/</guid>
+        
+        <category>3.1</category>
+        
+        <category>Jeu</category>
+        
+        
+        <category>projets</category>
+        
+      </item>
+    
+      <item>
+        <title>Le DELTA c'est quoi?</title>
+        <description>&lt;h2 id=&quot;quest-ce-que-le-delta-&quot;&gt;Qu’est ce que le DELTA ?&lt;/h2&gt;
+
+&lt;p&gt;Vous avez surement remarqué dans la méthode &lt;code class=&quot;highlighter-rouge&quot;&gt;_process()&lt;/code&gt; ou &lt;code class=&quot;highlighter-rouge&quot;&gt;_physic_process()&lt;/code&gt; l’argument &lt;code class=&quot;highlighter-rouge&quot;&gt;DELTA&lt;/code&gt; entre les parenthèses. cet argument peu avoir beaucoup d’importance pour uniformiser un déplacement suivant la machine qui exécute le code. Nous allons voir un peu à quoi il correspond.&lt;/p&gt;
+
+&lt;p&gt;Tout d’abord regardons quelle est la valeur de delta. 
+Dans n’importe quel projet tapez le code suivant:&lt;/p&gt;
+&lt;div class=&quot;language-swift highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;func&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;_process&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;delta&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+  &lt;span class=&quot;nf&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;DELTA: &quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;delta&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;La réponse peut varier sur chaque PC, moi personnellement la console affiche &lt;code class=&quot;highlighter-rouge&quot;&gt;0.016667&lt;/code&gt;
+Cette valeur correspond à &lt;code class=&quot;highlighter-rouge&quot;&gt;1 / 60&lt;/code&gt;. En fait ce facteur c’est le temps passé entre 2 images pour une seconde de runtime.&lt;/p&gt;
+
+&lt;h2 id=&quot;en-quoi-cela-peut-nous-aider-&quot;&gt;En quoi cela peut nous aider ?&lt;/h2&gt;
+&lt;p&gt;Lorsque vous utilisez une méthode comme &lt;code class=&quot;highlighter-rouge&quot;&gt;_process()&lt;/code&gt;, celle ci va s’exécuter à chaque frame, suivant l’importance de votre jeu, le nombre d’éléments à afficher, la qualité graphique ou tout autre méthode pouvant ralentir l’exécution de votre jeu. Pourtant vous voudriez qu’un déplacement soit régulier que votre jeu tourne à 60 FPS ou à 20 FPS. Prenons un exemple concret: 
+J’ai juste placé l’icon.png de Godot dans la scène principale et j’ai ajoute ce code:&lt;/p&gt;
+
+&lt;div class=&quot;language-swift highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;func&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;_process&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;delta&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;direction&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;float&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Input&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;is_action_pressed&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;ui_right&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;direction&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;5.0&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Input&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;is_action_pressed&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;ui_left&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;direction&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;5.0&lt;/span&gt;
+  &lt;span class=&quot;err&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;icon&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;position&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;direction&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;Dans la fonction boucle &lt;code class=&quot;highlighter-rouge&quot;&gt;_process()&lt;/code&gt; je récupère juste les touches gauche et droite pour modifier la &lt;strong&gt;position&lt;/strong&gt; de mon sprite de 5 pixels. 
+Maintenant prenons le temps de comprendre ce qu’il se passe suivant la puissance de notre PC et des latences possibles de notre jeu.&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;à &lt;strong&gt;60&lt;/strong&gt; FPS x 5 pixels par frame = notre sprite parcourt &lt;strong&gt;300&lt;/strong&gt; pixels en une seconde.&lt;/li&gt;
+  &lt;li&gt;à &lt;strong&gt;90&lt;/strong&gt; FPS x 5 pixels par frame = notre sprite parcourt &lt;strong&gt;450&lt;/strong&gt; pixels en une seconde.&lt;/li&gt;
+  &lt;li&gt;à &lt;strong&gt;20&lt;/strong&gt; FPS x 5 pixels par frame = notre sprite parcourt &lt;strong&gt;100&lt;/strong&gt; pixels en une seconde.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;em&gt;(FPS : Frames per second - &amp;gt; images par secondes)&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/2019-12-13-tutoriel-without-delta.png&quot; alt=&quot;without delta&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Ça serait problématique si dans mon éventuel jeu en réseau l’un incarnait un policier et l’autre un bandit à rattraper ! suivant la puissance de la machine, nous n’avancerions pas à la même distance par seconde.&lt;/p&gt;
+
+&lt;p&gt;C’est là qu’intervient le DELTA, cette valeur est renvoyée par le Moteur lui même dans la boucle principale du jeu et nous donne le temps entre chaque frame, il n’est pas constant et nous permet de nous renvoyer un facteur important.&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;à &lt;strong&gt;60&lt;/strong&gt; FPS le delta renvoyé est de &lt;strong&gt;0.016667&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;à &lt;strong&gt;90&lt;/strong&gt; FPS le delta renvoyé est de &lt;strong&gt;0.011111&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;à &lt;strong&gt;20&lt;/strong&gt; FPS le delta renvoyé est de &lt;strong&gt;0.05&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;quand-lutiliser-&quot;&gt;Quand l’utiliser ?&lt;/h2&gt;
+&lt;p&gt;maintenant modifions notre code précédent pour celui ci :&lt;/p&gt;
+
+&lt;div class=&quot;language-swift highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;func&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;_process&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;delta&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;direction&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;float&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Input&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;is_action_pressed&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;ui_right&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;direction&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;100.0&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Input&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;is_action_pressed&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;ui_left&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;direction&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;100.0&lt;/span&gt;
+  &lt;span class=&quot;err&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;icon&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;position&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;direction&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;delta&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;&lt;em&gt;j’ai changé la valeur de 5 à 100 car en multipliant 5 par delta le résultat est beaucoup plus faible&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Si on effectue les calculs maintenant:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;100 x 0.016667 = 1.6667 par frame x &lt;strong&gt;60&lt;/strong&gt; FPS = &lt;strong&gt;100.02&lt;/strong&gt; pixels en 1sec&lt;/li&gt;
+  &lt;li&gt;100 x 0.011111 = 1.111  par frame  x &lt;strong&gt;90&lt;/strong&gt; FPS = &lt;strong&gt;99.99&lt;/strong&gt;  pixels en 1 sec&lt;/li&gt;
+  &lt;li&gt;100 x 0.05 = 5  par frame x &lt;strong&gt;20&lt;/strong&gt; FPS = &lt;strong&gt;100&lt;/strong&gt; pixels en 1 sec&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/2019-12-13-tutoriel-with-delta.png&quot; alt=&quot;with delta&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Les résultats parlent d’eux-mêmes, malgré les différences de FPS la distance parcourue en une seconde est la même (les différences sont infimes au centième de pixel et viennent de mes arrondis )&lt;/p&gt;
+
+&lt;p&gt;Nous pouvons ainsi unifier la vitesse de déplacement quelle que soit la machine hôte, et ainsi avoir quasiment le même rendu malgré les pertes ou les accélérations de FPS.
+Le deuxième intérêt de cette méthode c’est que notre valeur de 100 x delta maintenant correspond à une valeur plus facile à décrire pour nous car elle ne représente plus une valeur théorique à chaque frame, mais bel et bien le déplacement précis que va effectuer notre sprite en 1 seconde.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;em&gt;Note:&lt;/em&gt;
+Si vous utilisez un kinematicBody il n’est pas nécessaire d’utiliser le DELTA car il est déjà intégré dans les calculs de velocité.&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+        <pubDate>Fri, 13 Dec 2019 00:00:00 +0000</pubDate>
+        <link>https://www.godot-francophone.org/tutoriel-delta/</link>
+        <guid isPermaLink="true">https://www.godot-francophone.org/tutoriel-delta/</guid>
+        
+        <category>delta</category>
+        
+        <category>gdscript</category>
+        
+        <category>ratio</category>
+        
+        <category>3.1</category>
+        
+        
+        <category>tutoriel</category>
+        
+      </item>
+    
+      <item>
+        <title>Tuile de tilemap animée</title>
+        <description>&lt;h2 id=&quot;créer-une-tuile-animée-dans-un-tilemap&quot;&gt;Créer une tuile animée dans un tilemap&lt;/h2&gt;
+&lt;p&gt;Si vous voulez conserver le principe de tilemap, mais agrémenter visuellement vos tuiles vous pouvez ajouter de l’animation directement. Pour ce faire il faudra utiliser une ressource qui va être chargée dans notre tilemap.&lt;/p&gt;
+
+&lt;p&gt;Dans le système de fichier, faites un clic droit n’importe où, et choisissez “&lt;strong&gt;nouvelle ressource&lt;/strong&gt;”&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/2019-12-13-tutoriel-ressources.gif&quot; alt=&quot;creation de ressource&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Une fenêtre “&lt;strong&gt;créer une nouvelle ressource&lt;/strong&gt;” va s’ouvrir et sélectionner &lt;strong&gt;animatedTexture&lt;/strong&gt;
+Il vous sera demandé alors de &lt;em&gt;nommer&lt;/em&gt; puis de &lt;em&gt;définir l’emplacement&lt;/em&gt; de la ressource que vous allez créer. l’objet devra être enregistré en &lt;strong&gt;.tres&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/2019-12-13-tutoriel-create_new.png&quot; alt=&quot;AnimatedTexture&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Oui fois validé, vous trouverez dans l’inspecteur votre ressource &lt;strong&gt;AnimatedTexture&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/2019-12-13-tutoriel-inspector.png&quot; alt=&quot;AnimatedTexture_create&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Vous voyez un sprite noir pour le moment avec en propriété&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;frames &lt;em&gt;(pour définir combien d’images vont définir l’animation)&lt;/em&gt;&lt;/li&gt;
+  &lt;li&gt;FPS &lt;em&gt;(pour définir la vitesse de l’animation).&lt;/em&gt;
+Et en dessous frame 0 ou vous aller commencer à insérer votre première image d’animation.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/2019-12-13-tutoriel-anim.gif&quot; alt=&quot;AnimatedTexture_working&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Votre ressource est maintenant crée. il n’y a rien à faire de spécial pour l’enregistrer, c’est automatique.&lt;/p&gt;
+
+&lt;p&gt;Retournez dans votre tilemap créez un tileset si cela n’a pas déjà été fait et dans le petit plus en bas à gauche, allez chercher votre ressource&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/2019-12-13-tutoriel-plus.png&quot; alt=&quot;add_animatedTexture&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Une fois sélectionné ça devient une tuile comme les autres, a vous de caler votre région. et voilà vous avez crée une tuile animée.&lt;/p&gt;
+
+&lt;h2 id=&quot;vidéo&quot;&gt;Vidéo&lt;/h2&gt;
+&lt;style&gt;.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }&lt;/style&gt;
+&lt;div class=&quot;embed-container&quot;&gt;    &lt;iframe title=&quot;YouTube video player&quot; width=&quot;640&quot; height=&quot;390&quot; src=&quot;//www.youtube.com/embed/b5JbUR3B1vU&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;&lt;/div&gt;
+</description>
+        <pubDate>Fri, 13 Dec 2019 00:00:00 +0000</pubDate>
+        <link>https://www.godot-francophone.org/tutoriel-animated_tile/</link>
+        <guid isPermaLink="true">https://www.godot-francophone.org/tutoriel-animated_tile/</guid>
+        
+        <category>tilemap</category>
+        
+        <category>animatedSprite</category>
+        
+        <category>resources</category>
+        
+        <category>3.1</category>
+        
+        
+        <category>tutoriel</category>
+        
+      </item>
+    
+      <item>
+        <title>Godot shaders</title>
+        <description>&lt;p&gt;Il n’y a aucun contenu pour les ressources.
+Ce que vous écrirez ici ne sera jamais affiché.&lt;/p&gt;
+</description>
+        <pubDate>Sun, 01 Dec 2019 00:00:00 +0000</pubDate>
+        <link>https://www.godot-francophone.org/resource-4shaders/</link>
+        <guid isPermaLink="true">https://www.godot-francophone.org/resource-4shaders/</guid>
+        
+        <category>Firework</category>
+        
+        <category>Feu d'artifice</category>
+        
+        <category>Shader</category>
+        
+        <category>3.1</category>
+        
+        <category>Ciel</category>
+        
+        <category>Feu</category>
+        
+        <category>Pixel</category>
+        
+        <category>Transition</category>
+        
+        
+        <category>shaders</category>
+        
+      </item>
+    
+  </channel>
+</rss>
